@@ -1,5 +1,3 @@
 export default function Index() {
-    return (
-        <h1>Welcome</h1>
-    )
+    return null
 }
