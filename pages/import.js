@@ -1,5 +1,12 @@
+import Header from '../components/header'
+
 export default function Import() {
     return (
-        <h1>Import</h1>
+        <>
+            <Header title='import'/>
+            <main>
+
+            </main>
+        </>
     )
 }
