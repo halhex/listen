@@ -1,3 +1,3 @@
 export default function Void() {
-	return <h1>Loading...</h1>
+	return <p className='loading'>Loading...</p>
 }

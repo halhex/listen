@@ -1,18 +1,14 @@
 import { getDocument, getCollection } from 'lib/firebase'
 
-import Header from 'components/header'
-import Void from 'components/void'
+import Collection from 'components/collection'
 import lazy from 'components/lazy'
+import Void from 'components/void'
 
 function Listen({ title, library }) {
 	if (!title) return <Void />
 
-	return (
-		<>
-			<Header title={title} />
-			<main></main>
-		</>
-	)
+	console.log(library)
+	return <Collection title={title} />
 }
 
 export default lazy(Listen)

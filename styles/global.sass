@@ -1,53 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Roboto:ital@0;1&display=swap')
+@import 'mixins'
+@import 'greeting', 'collection'
 
-body,html, *
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200;400;700&display=swap')
+
+html, body, *
   margin: 0
   padding: 0
-  // background-color: #121212
-  // color: #ffffff
-
-#__next // root
-  display: grid
-  grid-template-rows: auto 1fr auto
-
-#header
-  place-self: center
-
-  .title
-    justify-self: center
-    font-size: 1.2em
-    font-family: Montserrat, sans-serif
-    font-weight: 800
-    margin: 1.6em
-
-  .greeting
-    justify-self: start
-    font-size: 1.2em
-    font-family: Montserrat, sans-serif
-    font-weight: 800
-    margin: 1.6em
-
-    &:first-letter
-      text-transform: uppercase
-
+  font-family: 'Mukta', sans-serif
+  font-weight: 400
 
 a
-  color: black
-  text-decoration: none
+  color: inherit
+  text-decoration: inherit
 
-ol, ul
+ul, ol
   list-style: none
+  padding-left: 0
 
-  li
-    padding: .8em
-    border-bottom: 1px solid #1F0000
+#__next
+  display: grid
+  min-height: 100vh
+  align-content: start
 
-    &:first-child
-      padding-top: 0
-
-    &:last-child
-      border-bottom: none
-
-main
-  place-self: center
-  width: 80vw
+.loading, .error
+   position: absolute
+   left: 50vw
+   top: 50vh
+   transform: translate(-50%, -50%)

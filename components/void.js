@@ -6,7 +6,7 @@ export default function Void() {
 			<Head>
 				<meta name='robots' content='noindex' />
 			</Head>
-			<h1>Oops</h1>
+			<p className='error'>Oops</p>
 		</>
 	)
 }

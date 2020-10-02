@@ -1,13 +1,12 @@
-import { memo } from 'react'
-import Link from 'components/link'
 import useGreeting from 'hooks/greeting'
 
-function Header({ title }) {
+export default function Header() {
+	const greeting = useGreeting()
+
 	return (
-		<header id='header'>
-			<h1 className='title'>{title}</h1>
+		<header className='greeting'>
+			<p>{greeting}</p>
+			<a href='#' className='menu'>Settings</a>
 		</header>
 	)
 }
-
-export default memo(Header)

@@ -1,0 +1,20 @@
+@import 'mixins'
+
+.greeting
+  display: flex
+  justify-content: space-between
+  font-size: 1.2em
+  font-weight: 700
+  margin: 1.2em
+
+  p:first-letter
+    text-transform: uppercase
+
+.menu
+  @include secondary
+  @include icon
+  &:before
+    background-image: url('/menu.svg')
+    background-size: 2em 2em
+    height: 2em
+    width: 2em
