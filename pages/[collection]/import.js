@@ -1,12 +1,19 @@
 import { useState } from 'react'
 import Form from 'components/form'
+import useFirebase from 'hooks/firebase'
 
 export default function Import() {
+   const firebase = useFirebase()
 	const [title, setTitle] = useState('')
    const [artist, setArtist] = useState('')
 
    const submit = () => {
-      console.log('submit')
+      firebase
+         .firestore()
+         .collection('music')
+         .doc('mmxx')
+         .collection('collection')
+         .add({title, artist, type: 'track', number: 3})
    }
 
 	return (

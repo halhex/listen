@@ -6,7 +6,7 @@ function Collection({ title, description, tracks }) {
 			<h1>{title}</h1>
 			<h2 className='description'>{description}</h2>
 			<ol className='tracks'>
-            {tracks?.map(track => <Track {...track} />)}
+            {tracks?.map(track => <Track key={track.title} {...track} />)}
 				<li className='track'>
 					<Link href='/mmxx/import' className='plus'>+</Link>
 					<Link href='/mmxx/import' className='import'>Import a new track</Link>
