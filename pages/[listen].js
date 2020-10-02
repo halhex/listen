@@ -4,11 +4,15 @@ import Collection from 'components/collection'
 import lazy from 'components/lazy'
 import Void from 'components/void'
 
-function Listen({ title, library }) {
+function Listen({ title, description, library }) {
 	if (!title) return <Void />
 
 	console.log(library)
-	return <Collection title={title} />
+	return <Collection
+		title={title}
+		description={description}
+		tracks={library}
+	/>
 }
 
 export default lazy(Listen)
@@ -22,6 +26,7 @@ export async function getStaticProps({ params: { listen: id } }) {
 	return {
 		props: {
 			title: document.title ?? 'Welcome',
+			description: document.description,
 			library
 		}
 	}
