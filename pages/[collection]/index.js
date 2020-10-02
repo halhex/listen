@@ -7,7 +7,6 @@ import Void from 'components/void'
 function Listen({ title, description, library }) {
 	if (!title) return <Void />
 
-	console.log(library)
 	return <Collection
 		title={title}
 		description={description}
@@ -17,7 +16,7 @@ function Listen({ title, description, library }) {
 
 export default lazy(Listen)
 
-export async function getStaticProps({ params: { listen: id } }) {
+export async function getStaticProps({ params: { collection: id } }) {
 	const document = await getDocument(id)
 	if (!document) return { props: {}, revalidate: 60 }
 	if (document.type == 'track') return { props: document }

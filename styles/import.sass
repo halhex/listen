@@ -1,0 +1,41 @@
+@import 'mixins'
+
+main.import
+   header
+      display: none
+
+   form
+      display: grid
+      grid-template-rows: auto auto auto
+      grid-template-columns: 50% 50%
+      align-items: start
+
+   .title
+      font-size: 2em
+      font-weight: 400
+      grid-column: 1 / span 2
+
+   .artist
+      @include secondary
+      font-size: 1em
+      grid-column: 1 / span 2
+
+   button
+      font-size: .9em
+      font-weight: 700
+      background-color: #212121
+      color: #FFF
+      border-radius: 5px
+      padding: 1em 2em
+      margin: 1em
+      border: 1px solid #ddd
+      position: absolute
+      bottom: 1em
+      right: 1em
+
+      &:hover
+         border-color: #212121
+
+      &:disabled
+         background-color: #A0A0A0
+         border-color: #A0A0A0

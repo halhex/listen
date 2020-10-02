@@ -1,3 +1,5 @@
+import Link from 'components/link'
+
 function Collection({ title, description, tracks }) {
 	return (
 		<main className='collection'>
@@ -5,6 +7,10 @@ function Collection({ title, description, tracks }) {
 			<h2 className='description'>{description}</h2>
 			<ol className='tracks'>
             {tracks?.map(track => <Track {...track} />)}
+				<li className='track'>
+					<Link href='/mmxx/import' className='plus'>+</Link>
+					<Link href='/mmxx/import' className='import'>Import a new track</Link>
+				</li>
 			</ol>
 		</main>
 	)
