@@ -26,6 +26,32 @@ export default function useFirebase() {
 	return firebase
 }
 
+export function useLibrary(id) {
+	function push(title, artist) {
+		const document = music.doc(id)
+		const track = document.collection('collection').doc()
+
+		return firestore().runTransaction(async (transaction) => {
+			const doc = await transaction.get(document)
+			if (!doc.exists) throw 'Library does not exists!'
+
+			const size = doc.data().size
+			transaction.set(track, {
+				title,
+				artist,
+				type: 'track',
+				number: size + 1
+			})
+
+			transaction.update(document, {
+				size: firestore.FieldValue.increment(1)
+			})
+		})
+	}
+
+	return { push }
+}
+
 // Todo: documentation
 const use = (empty, load, read) => (id) => {
 	const [state, setState] = useState()
@@ -45,6 +71,6 @@ export const useDocument = use(
 
 export const useCollection = use(
 	[],
-	(id) => music.doc(id).collection('library'),
+	(id) => music.doc(id).collection('collection'),
 	(collection) => collection?.docs.map((document) => document.data())
 )

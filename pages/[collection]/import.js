@@ -1,20 +1,16 @@
 import { useState } from 'react'
 import Form from 'components/form'
-import useFirebase from 'hooks/firebase'
+import { useRouter } from 'next/router'
+import { useLibrary } from 'hooks/firebase'
 
 export default function Import() {
-   const firebase = useFirebase()
+	const { push: redirect, query: { collection } } = useRouter()
+	const { push } = useLibrary(collection)
 	const [title, setTitle] = useState('')
    const [artist, setArtist] = useState('')
 
-   const submit = () => {
-      firebase
-         .firestore()
-         .collection('music')
-         .doc('mmxx')
-         .collection('collection')
-         .add({title, artist, type: 'track', number: 3})
-   }
+	const submit = () => push(title, artist)
+		.then(() => redirect('/mmxx', '/mmxx', { shallow: true }))
 
 	return (
 		<main className='import'>
