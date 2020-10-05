@@ -3,10 +3,13 @@ import { getDocument, getCollection } from 'lib/firebase'
 import Collection from 'components/collection'
 import lazy from 'components/lazy'
 import Void from 'components/void'
+import { useDescription, useMetaTag, useTitle } from 'hooks/context'
 
 function Listen({ title, description, library }) {
 	if (!title) return <Void />
 
+	useTitle(title)
+	useDescription(description)
 	return <Collection
 		title={title}
 		description={description}

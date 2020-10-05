@@ -27,6 +27,8 @@ export default function useFirebase() {
 }
 
 export function useLibrary(id) {
+	const library = useDocument(id)
+
 	function push(title, artist) {
 		const document = music.doc(id)
 		const track = document.collection('collection').doc()
@@ -49,7 +51,7 @@ export function useLibrary(id) {
 		})
 	}
 
-	return { push }
+	return { library, push }
 }
 
 // Todo: documentation
