@@ -1,14 +1,16 @@
 @import 'mixins'
-@import 'greeting', 'collection'
+@import 'greeting', 'collection', 'import'
 
 @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@200;400;700&display=swap')
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300W0&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap')
 
 html, body, *
   margin: 0
   padding: 0
   font-family: 'Mukta', sans-serif
   font-weight: 400
+  line-height: 1.2
+  color: #212121
 
 h1, h2, h3, h4, h5, h6
   font-size: inherit
@@ -21,10 +23,23 @@ ul, ol
   list-style: none
   padding-left: 0
 
+input, input:focus,
+select, select:focus,
+textarea, textarea:focus,
+button, button:focus
+  border: none
+  outline: none
+  background: none
+
 #__next
   display: grid
   min-height: 100vh
   align-content: start
+
+  >main, >form
+    width: 80vw
+    justify-self: center
+    margin: 1em
 
 .loading, .error
    position: absolute

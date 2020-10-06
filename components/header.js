@@ -1,7 +1,7 @@
 import useGreeting from 'hooks/greeting'
 
 export default function Header() {
-	const greeting = useGreeting()
+	const greeting = 'hi,'
 
 	return (
 		<header className='greeting'>
